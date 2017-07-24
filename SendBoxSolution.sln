@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerWrapper", "TimerWrrape
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogWrapper", "LogWrapper\LogWrapper.csproj", "{A77F04B7-52A5-4ABE-8C11-C22AE100D3B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumerQueue", "ProducerConsumerQueue\ProducerConsumerQueue.csproj", "{F8F0B2CD-7443-48A6-9F5A-6FEF75705552}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A77F04B7-52A5-4ABE-8C11-C22AE100D3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A77F04B7-52A5-4ABE-8C11-C22AE100D3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A77F04B7-52A5-4ABE-8C11-C22AE100D3B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8F0B2CD-7443-48A6-9F5A-6FEF75705552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8F0B2CD-7443-48A6-9F5A-6FEF75705552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8F0B2CD-7443-48A6-9F5A-6FEF75705552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8F0B2CD-7443-48A6-9F5A-6FEF75705552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
