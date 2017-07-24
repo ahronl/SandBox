@@ -1,0 +1,5 @@
+C:\Projects\SendBox\MostResentlyUsedRepository.App\bin\Debug\MostResentlyUsedRepository.App.exe.config
+C:\Projects\SendBox\MostResentlyUsedRepository.App\bin\Debug\MostResentlyUsedRepository.App.exe
+C:\Projects\SendBox\MostResentlyUsedRepository.App\bin\Debug\MostResentlyUsedRepository.App.pdb
+C:\Projects\SendBox\MostResentlyUsedRepository.App\obj\Debug\MostResentlyUsedRepository.App.exe
+C:\Projects\SendBox\MostResentlyUsedRepository.App\obj\Debug\MostResentlyUsedRepository.App.pdb
