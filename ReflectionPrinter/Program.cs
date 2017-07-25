@@ -12,21 +12,7 @@ namespace ReflectionPrinter
     {
         static void Main(string[] args)
         {
-            Person man = CreatePerson("Adam", 4);
-
-            for (int i = 1; i < man.Children.Count + 1; i++)
-            {
-                foreach (var ch in man.Children)
-                {
-                    var p = new Person($"grandson number {i}", i);
-                    ch.Children.Add(p);
-
-                    for (int j = 0; j < 3; j++)
-                    {
-                        p.Children.Add(new Person($"great grandson number {i}", i));
-                    }
-                }
-            }
+            Person man = CreatePerson();
 
             string desc = ConvertToString(man);
 
@@ -44,18 +30,28 @@ namespace ReflectionPrinter
              */
         }
 
-        private static Person CreatePerson(string name, int childrenAmount)
+        private static Person CreatePerson()
         {
-            Person man = new Person(name, 100);
+            Person man = new Person("Adam", 100);
 
-            for (int i = 1; i < childrenAmount + 1; i++)
+            for (int j = 1; j < 5 + 1; j++)
             {
-                man.Children.Add(new Person($"son number {i}", i));
-            }
+                var child = new Person($"son number {j}", 100 - j);
+                man.Children.Add(child);
 
+                for (int i = 1; i < 5; i++)
+                {
+                    var grandson = new Person($"grandson number {i}", 100 - i - j);
+                    child.Children.Add(grandson);
+
+                    for (int k = 1; k < 5; k++)
+                    {
+                        grandson.Children.Add(new Person($"great grandson number {i}", 100 - i - j - k));
+                    }
+                }
+            }
             return man;
         }
-
         private static string ConvertToString(object obj, int tabcount = 0)
         {
             string res = string.Empty;
