@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumerQueue", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.App", "EventBus.App\EventBus.App.csproj", "{2050BC1F-17A1-4D13-A13B-5A53A0AF1B26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWhenAllOrFail.App", "TaskWhenAllOrFail.App\TaskWhenAllOrFail.App.csproj", "{999F67F3-4EBE-4728-9D2E-F345DD12BABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2050BC1F-17A1-4D13-A13B-5A53A0AF1B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2050BC1F-17A1-4D13-A13B-5A53A0AF1B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2050BC1F-17A1-4D13-A13B-5A53A0AF1B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999F67F3-4EBE-4728-9D2E-F345DD12BABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999F67F3-4EBE-4728-9D2E-F345DD12BABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999F67F3-4EBE-4728-9D2E-F345DD12BABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999F67F3-4EBE-4728-9D2E-F345DD12BABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
