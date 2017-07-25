@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using EventBus.App.Handlers;
+using EventBus.App.Bus.Handlers;
 
-namespace EventBus.App.Publishers
+namespace EventBus.App.Bus.Publishers
 {
     internal class BalancedQueuePublisher : IEventPublisher
     {

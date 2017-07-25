@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EventBus.App.CustomEvents;
 
 namespace EventBus.App
 {
@@ -10,7 +11,7 @@ namespace EventBus.App
     {
         static void Main(string[] args)
         {
-            EventBus sut = new EventBus();
+            Bus.EventBus sut = new Bus.EventBus();
             
             sut.Subscribe<MySimpleEventData>((dto) =>
             {

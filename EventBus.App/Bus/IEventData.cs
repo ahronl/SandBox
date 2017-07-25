@@ -1,4 +1,4 @@
-﻿namespace EventBus.App
+﻿namespace EventBus.App.Bus
 {
     public interface IEventData
     {

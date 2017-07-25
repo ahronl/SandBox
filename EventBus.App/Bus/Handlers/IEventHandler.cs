@@ -1,4 +1,4 @@
-﻿namespace EventBus.App.Handlers
+﻿namespace EventBus.App.Bus.Handlers
 {
     public interface IEventHandler
     {

@@ -1,4 +1,6 @@
-﻿namespace EventBus.App
+﻿using EventBus.App.Bus;
+
+namespace EventBus.App.CustomEvents
 {
     internal class MySimpleEventData : EventData
     {

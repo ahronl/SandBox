@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using EventBus.App.Handlers;
+using EventBus.App.Bus.Handlers;
 
-namespace EventBus.App.Publishers
+namespace EventBus.App.Bus.Publishers
 {
     internal class TaskPublisher : IEventPublisher
     {

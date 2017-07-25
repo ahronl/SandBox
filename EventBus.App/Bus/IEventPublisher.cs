@@ -1,6 +1,6 @@
 using System;
 
-namespace EventBus.App
+namespace EventBus.App.Bus
 {
     internal interface IEventPublisher:IDisposable
     {

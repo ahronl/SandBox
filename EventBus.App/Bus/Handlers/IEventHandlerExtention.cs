@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace EventBus.App.Handlers
+namespace EventBus.App.Bus.Handlers
 {
     internal static class EventHandlerExtention
     {

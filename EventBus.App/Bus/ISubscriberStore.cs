@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using EventBus.App.Handlers;
+using EventBus.App.Bus.Handlers;
 
-namespace EventBus.App
+namespace EventBus.App.Bus
 {
     internal interface ISubscriberStore:IDisposable
     {

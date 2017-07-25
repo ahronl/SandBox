@@ -2,9 +2,9 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using EventBus.App.Handlers;
+using EventBus.App.Bus.Handlers;
 
-namespace EventBus.App.Publishers
+namespace EventBus.App.Bus.Publishers
 {
     internal class ProducerConsumerPublisher: IEventPublisher
     {

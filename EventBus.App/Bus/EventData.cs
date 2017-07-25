@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace EventBus.App
+namespace EventBus.App.Bus
 {
     [Serializable]
     public abstract class EventData : IEventData

@@ -44,23 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventBus.cs" />
-    <Compile Include="EventData.cs" />
-    <Compile Include="Handlers\ActionEventHandler.cs" />
-    <Compile Include="Handlers\EventHandlerStore.cs" />
-    <Compile Include="Handlers\HandlerDisposer.cs" />
-    <Compile Include="Handlers\IEventHandler.cs" />
-    <Compile Include="Handlers\IEventHandlerExtention.cs" />
-    <Compile Include="IEventBus.cs" />
-    <Compile Include="IEventData.cs" />
-    <Compile Include="IEventPublisher.cs" />
-    <Compile Include="ISubscriberStore.cs" />
-    <Compile Include="MySimpleEventData.cs" />
+    <Compile Include="Bus\EventBus.cs" />
+    <Compile Include="Bus\EventData.cs" />
+    <Compile Include="Bus\Handlers\ActionEventHandler.cs" />
+    <Compile Include="Bus\Handlers\EventHandlerStore.cs" />
+    <Compile Include="Bus\Handlers\HandlerDisposer.cs" />
+    <Compile Include="Bus\Handlers\IEventHandler.cs" />
+    <Compile Include="Bus\Handlers\IEventHandlerExtention.cs" />
+    <Compile Include="Bus\IEventBus.cs" />
+    <Compile Include="Bus\IEventData.cs" />
+    <Compile Include="Bus\IEventPublisher.cs" />
+    <Compile Include="Bus\ISubscriberStore.cs" />
+    <Compile Include="CustomEvents\MySimpleEventData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Publishers\BalancedQueuePublisher.cs" />
-    <Compile Include="Publishers\ProducerConsumerPublisher.cs" />
-    <Compile Include="Publishers\TaskPublisher.cs" />
+    <Compile Include="Bus\Publishers\BalancedQueuePublisher.cs" />
+    <Compile Include="Bus\Publishers\ProducerConsumerPublisher.cs" />
+    <Compile Include="Bus\Publishers\TaskPublisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

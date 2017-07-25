@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EventBus.App.Handlers
+namespace EventBus.App.Bus.Handlers
 {
     internal class EventHandlerStore : ISubscriberStore, IDisposable
     {

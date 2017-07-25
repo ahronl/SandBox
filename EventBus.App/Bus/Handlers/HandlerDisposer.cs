@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EventBus.App.Handlers
+namespace EventBus.App.Bus.Handlers
 {
     internal class HandlerDisposer : IDisposable
     {

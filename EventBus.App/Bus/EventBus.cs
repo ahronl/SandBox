@@ -1,8 +1,8 @@
 ﻿using System;
-using EventBus.App.Handlers;
-using EventBus.App.Publishers;
+using EventBus.App.Bus.Handlers;
+using EventBus.App.Bus.Publishers;
 
-namespace EventBus.App
+namespace EventBus.App.Bus
 {
     public class EventBus : IEventBus, IDisposable
     {
