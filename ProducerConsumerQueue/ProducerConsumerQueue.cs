@@ -79,17 +79,6 @@ namespace ProducerConsumerQueue
             }
         }
 
-        private static void CancelPotentialThreadInterruptedException()
-        {
-            try
-            {
-                Thread.Sleep(1);
-            }
-            catch (ThreadInterruptedException)
-            {
-            }
-        }
-
         private void ThrowIfDisposed()
         {
             if (_disposed)
