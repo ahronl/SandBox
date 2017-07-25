@@ -27,7 +27,7 @@ namespace TimerWrapper.Impl
             get; private set;
         }
 
-        public Guid ZTimerInstanceId
+        public Guid InstanceId
         {
             get; private set;
         }
@@ -61,7 +61,7 @@ namespace TimerWrapper.Impl
         {
             _executionLock = new object();
             _timer = new System.Timers.Timer();
-            ZTimerInstanceId = Guid.NewGuid();
+            InstanceId = Guid.NewGuid();
             _intervalPolicy = intervalPolicy;
             _disposed = _isExecuting = false;
             _command = command;
@@ -87,16 +87,13 @@ namespace TimerWrapper.Impl
         }
         private void ElapsedCommand(CancellationToken cToken)
         {
-            CancelPotentialThreadInterruptedException();
-
             _executeStartTime = DateTime.UtcNow;
             ExecuteCommand(_command, cToken);
 
             CreateCancellationTokenSource();
             ReinitializeTimer(_executeStartTime);
-           
-            CancelPotentialThreadInterruptedException();
         }       
+
         private CancellationToken GetToken()
         {            
             return _cancellationTokenSource.Token;
@@ -189,17 +186,7 @@ namespace TimerWrapper.Impl
                 }
             }
         }
-        private void CancelPotentialThreadInterruptedException()
-        {
-            try
-            {
-                Thread.Sleep(0);
-            }
-            catch (ThreadInterruptedException ex)
-            {
-                Notify(ExceptionEvent, ex);
-            }
-        }
+       
         public void CancelCurrentExecution()
         {
             if (_cancellationTokenSource == null || _cancellationTokenSource.IsCancellationRequested == true)
@@ -255,7 +242,7 @@ namespace TimerWrapper.Impl
         {
             if (_disposed)
             {
-                throw new ObjectDisposedException(string.Format($"can not run now a disposed timer Id: {Id},Name: {Name},ZTimerInstanceId: {ZTimerInstanceId}"));
+                throw new ObjectDisposedException(string.Format($"can not run now a disposed timer Id: {Id},Name: {Name},ZTimerInstanceId: {InstanceId}"));
             }
         }
         public void Start()

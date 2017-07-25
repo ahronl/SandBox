@@ -59,7 +59,7 @@ namespace TimerWrapper
         /// <summary>
         /// instance unique id
         /// </summary>
-        Guid ZTimerInstanceId { get; }
+        Guid InstanceId { get; }
         /// <summary>
         /// return the managed thread Id may change with every execution
         /// </summary>
