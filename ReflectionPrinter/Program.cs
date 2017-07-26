@@ -58,13 +58,13 @@ namespace ReflectionPrinter
 
             Type type = obj.GetType();
 
-            foreach (var propertyInfo in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
+            foreach (PropertyInfo propertyInfo in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
             {
-                if (propertyInfo.PropertyType.IsValueType || propertyInfo.PropertyType.IsEquivalentTo(typeof(string)))
+                if (IsValueTypeOrString(propertyInfo))
                 {
                     res += $" {propertyInfo.Name} : {propertyInfo.GetValue(obj, null)} ";
                 }
-                else if (typeof(IEnumerable).IsAssignableFrom(propertyInfo.PropertyType))
+                else if (IsEnumerable(propertyInfo))
                 {
                     IEnumerable<object> items = propertyInfo.GetValue(obj, null) as IEnumerable<object>;
 
@@ -72,18 +72,33 @@ namespace ReflectionPrinter
 
                     tabcount++;
 
-                    foreach (var subObj in items)
+                    foreach (object subObj in items)
                     {
                         res += Environment.NewLine + string.Concat(Enumerable.Repeat("\t",tabcount)) + ConvertToString(subObj, tabcount);
                     }
                 }
-                else if (propertyInfo.PropertyType.IsClass)
+                else if (IsObject(propertyInfo))
                 {
-                    res += Environment.NewLine +  ConvertToString(propertyInfo.GetValue(obj));
+                    res += Environment.NewLine + ConvertToString(propertyInfo.GetValue(obj, null));
                 }
             }
 
             return res;
+        }
+
+        private static bool IsValueTypeOrString(PropertyInfo propertyInfo)
+        {
+            return propertyInfo.PropertyType.IsValueType || propertyInfo.PropertyType.IsEquivalentTo(typeof(string));
+        }
+
+        private static bool IsEnumerable(PropertyInfo propertyInfo)
+        {
+            return typeof(IEnumerable).IsAssignableFrom(propertyInfo.PropertyType);
+        }
+
+        private static bool IsObject(PropertyInfo propertyInfo)
+        {
+            return propertyInfo.PropertyType.IsClass;
         }
     }
 }
