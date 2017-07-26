@@ -52,9 +52,10 @@ namespace ReflectionPrinter
             }
             return man;
         }
+
         private static string ConvertToString(object obj, int tabcount = 0)
         {
-            string res = string.Empty + Environment.NewLine;
+            string res = Environment.NewLine + AppendTabs(tabcount);
 
             Type type = obj.GetType();
 
@@ -64,6 +65,10 @@ namespace ReflectionPrinter
             }
 
             return res;
+        }
+        private static string AppendTabs(int tabcount)
+        {
+            return string.Concat(Enumerable.Repeat("\t", tabcount));
         }
 
         private static string ConvertToPropertyToString(PropertyInfo propertyInfo, object obj, int tabcount)
@@ -78,14 +83,9 @@ namespace ReflectionPrinter
             }
             if (IsObject(propertyInfo))
             {
-                return AppendTabs(tabcount) + ConvertToString(propertyInfo.GetValue(obj, null), tabcount);
+                return ConvertToString(propertyInfo.GetValue(obj, null), tabcount);
             }
             return string.Empty;
-        }
-
-        private static string AppendTabs(int tabcount)
-        {
-            return string.Concat(Enumerable.Repeat("\t", tabcount));
         }
 
         private static bool IsValueTypeOrString(PropertyInfo propertyInfo)
@@ -107,7 +107,10 @@ namespace ReflectionPrinter
         {
             IEnumerable<object> items = propertyInfo.GetValue(obj, null) as IEnumerable<object>;
 
-            if (items == null) return String.Empty;
+            if (items == null)
+            {
+                return String.Empty;
+            }
 
             tabcount++;
 
@@ -117,9 +120,9 @@ namespace ReflectionPrinter
             {
                 res += AppendTabs(tabcount) + ConvertToString(subObj, tabcount);
             }
+
             return res;
         }
-
         private static bool IsObject(PropertyInfo propertyInfo)
         {
             return propertyInfo.PropertyType.IsClass;
