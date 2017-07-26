@@ -18,11 +18,9 @@ namespace IsCircularList
 
             List<Node> firstcircularlist = new List<Node>(new[] {node1, node2, node1, node4, node5, node3});
 
-
             Console.WriteLine("first list is circular {0}", IsCircular(firstcircularlist));
 
             List<Node> secondCircularlist = new List<Node>(new[] { node1, node2, node3, node4, node5 });
-
 
             Console.WriteLine("second list is circular {0}", IsCircular(secondCircularlist));
 

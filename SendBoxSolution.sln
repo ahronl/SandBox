@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionPrinter", "Reflec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsCircularList", "IsCircularList\IsCircularList.csproj", "{3C305030-8980-45B5-A6F5-1E0D02AE8C1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsListsIntersects", "IsListsIntersects\IsListsIntersects.csproj", "{2D658867-46D1-4C5E-AA21-AB93AE066579}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{3C305030-8980-45B5-A6F5-1E0D02AE8C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C305030-8980-45B5-A6F5-1E0D02AE8C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C305030-8980-45B5-A6F5-1E0D02AE8C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D658867-46D1-4C5E-AA21-AB93AE066579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D658867-46D1-4C5E-AA21-AB93AE066579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D658867-46D1-4C5E-AA21-AB93AE066579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D658867-46D1-4C5E-AA21-AB93AE066579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
