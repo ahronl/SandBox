@@ -7,10 +7,8 @@ namespace MostResentlyUsedRepository.App
     internal class MostResentlyUsedRepository<TKey, TValue>
     {
         private readonly int _capacity;
-        private readonly TKey[] _keyStore;
-        private readonly Dictionary<TKey, Tuple<TValue, int>> _dictionary;
-
-        private int _index;
+        private readonly List<TKey> _accessSequence;
+        private readonly Dictionary<TKey, TValue> _dictionary;
 
         public MostResentlyUsedRepository(int capacity)
         {
@@ -18,106 +16,58 @@ namespace MostResentlyUsedRepository.App
             {
                 throw new ArgumentOutOfRangeException($"{nameof(capacity)} must be greater then Zero");
             }
-
-            _index = 0;
             _capacity = capacity;
-            _keyStore = new TKey[_capacity];
-            _dictionary = new Dictionary<TKey, Tuple<TValue, int>>(_capacity);
+            _accessSequence = new List<TKey>(_capacity);
+            _dictionary = new Dictionary<TKey, TValue>(_capacity);
+        }
+
+        internal IEnumerable<Tuple<TKey,TValue>> All()
+        {
+            return _dictionary.Select(x => new Tuple<TKey, TValue>(x.Key, x.Value));
         }
 
         public void Put(TKey key, TValue val)
         {
-            if (ShouldUpdate(key))
+            if (_dictionary.ContainsKey(key))
             {
-                Update(key, val);
+                _dictionary[key] = val;
+                UpdateAccessSequence(key);
             }
             else
             {
-                CalculateNextIndex();
-
-                if (IsOverCapacity())
+                if (_accessSequence.Count == _capacity)
                 {
-                    RemoveItem();
+                    RemoveOldest();
                 }
 
-                PutNewItem(key, val);
+                _dictionary[key] = val;
+
+                AddAccessSequence(key);
             }
         }
 
-        private bool ShouldUpdate(TKey key)
+        private void AddAccessSequence(TKey key)
         {
-            return Contains(key);
+            _accessSequence.Add(key);
         }
 
-        private void Update(TKey key, TValue val)
+        private void RemoveOldest()
         {
-            _index = GetIndex(key);
-            _dictionary[key] = new Tuple<TValue, int>(val, _index);
-        }
-
-        private int GetIndex(TKey key)
-        {
-            return _dictionary[key].Item2;
-        }
-
-        private bool IsOverCapacity()
-        {
-            return IsDefaultAt(_index) == false;
-        }
-
-        private void PutNewItem(TKey key, TValue val)
-        {
-            _dictionary[key] = new Tuple<TValue, int>(val, _index);
-            SetKeyInStore(key);
-        }
-
-        private bool Contains(TKey key)
-        {
-            return _dictionary.ContainsKey(key);
-        }
-
-        private void RemoveItem()
-        {
-            TKey toRemove = _keyStore[_index];
-            _dictionary.Remove(toRemove);
-        }
-
-        private void CalculateNextIndex()
-        {
-            _index = (_index + 1) % _capacity;
-        }
-
-        private bool IsDefaultAt(int itemIndex)
-        {
-            return _keyStore[itemIndex].Equals(default(TKey));
+            TKey key = _accessSequence.First();
+            _accessSequence.Remove(key);
+            _dictionary.Remove(key);
         }
 
         public TValue Get(TKey key)
         {
-            if (Contains(key) == false)
-            {
-                return default(TValue);
-            }
-
-            CalculateNextIndex();
-            SetKeyInStore(key);
-
-            return GetValue(key);
+            UpdateAccessSequence(key);
+            return _dictionary[key];
         }
 
-        private void SetKeyInStore(TKey key)
+        private void UpdateAccessSequence(TKey key)
         {
-            _keyStore[_index] = key;
-        }
-
-        private TValue GetValue(TKey key)
-        {
-            return _dictionary[key].Item1;
-        }
-
-        public List<Tuple<TKey, TValue>> All()
-        {
-            return _dictionary.Select(x => new Tuple<TKey, TValue>(x.Key, x.Value.Item1)).ToList();
+            _accessSequence.Remove(key);
+            _accessSequence.Add(key);
         }
     }
 }

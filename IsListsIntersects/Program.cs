@@ -54,7 +54,7 @@ namespace IsListsIntersects
                 first = Skip(first, sec.Count);
             }
 
-            return IsIntersects1(first, sec);
+            return IsIntersectsEqualSizeLists(first, sec);
         }
 
         private static List<Node> Skip(List<Node> first, int count)
@@ -69,7 +69,7 @@ namespace IsListsIntersects
             return res;
         }
 
-        private static int IsIntersects1(List<Node> first, List<Node> sec)
+        private static int IsIntersectsEqualSizeLists(List<Node> first, List<Node> sec)
         {
             for (int i = 0; i < first.Count; i++)
             {

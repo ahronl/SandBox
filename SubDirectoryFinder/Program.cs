@@ -63,16 +63,16 @@ namespace SubDirectoryFinder
             if(string.IsNullOrWhiteSpace(subDir)) return;
 
             string perFix = subDir.Substring(0, 3);
-            string portFix = string.Empty;
+            string postFix = string.Empty;
 
             if (subDir.Length > 3)
             {
-                portFix = subDir.Substring(4, subDir.Length - 4);
+                postFix = subDir.Substring(4, subDir.Length - 4);
             }
 
             Node node = root.GetNode(perFix);
 
-            CreateNode(portFix, node);
+            CreateNode(postFix, node);
         }
 
         private static List<string> GraphToString(Node node)

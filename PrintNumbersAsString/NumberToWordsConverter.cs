@@ -82,7 +82,7 @@ namespace PrintNumbersAsString
 
         private string ConvertSection(string number, int i)
         {
-            string result = string.Empty;
+            string result;
 
             if (number.Length == 3)
             {
