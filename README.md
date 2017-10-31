@@ -1,2 +1,2 @@
 # SandBox
-snipets of code I wrote
+snippets of code I wrote
