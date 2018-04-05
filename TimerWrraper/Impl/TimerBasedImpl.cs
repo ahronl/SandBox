@@ -253,7 +253,6 @@ namespace TimerWrapper.Impl
             CreateCancellationTokenSource();
             _executeStartTime = DateTime.UtcNow;
             ReinitializeTimer(_executeStartTime);
-            _timer.Start();
             Notify(StartEvent);
         }
         public void Stop()
