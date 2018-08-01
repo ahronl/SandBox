@@ -1,8 +1,0 @@
-C:\Projects\SendBox\TimerWrraper\obj\Debug\TimerWrraper.csprojResolveAssemblyReference.cache
-C:\Projects\SendBox\TimerWrraper\bin\Debug\TimerWrraper.exe.config
-C:\Projects\SendBox\TimerWrraper\bin\Debug\TimerWrraper.exe
-C:\Projects\SendBox\TimerWrraper\bin\Debug\TimerWrraper.pdb
-C:\Projects\SendBox\TimerWrraper\bin\Debug\NLog.dll
-C:\Projects\SendBox\TimerWrraper\bin\Debug\NLog.xml
-C:\Projects\SendBox\TimerWrraper\obj\Debug\TimerWrraper.exe
-C:\Projects\SendBox\TimerWrraper\obj\Debug\TimerWrraper.pdb
