@@ -2,10 +2,10 @@
 
 namespace TimerWrapper.Log
 {
-    internal class ZTimerEventListener : ZTimerLoggerBase
+    internal class TimerEventListener : TimerLoggerBase
     {
-        public ZTimerEventListener(ITimerEvents timer, ZTimerLoggerBase ztimerLoggerBase = null)
-            : base(timer, ztimerLoggerBase)
+        public TimerEventListener(ITimerEvents timer, TimerLoggerBase timerLoggerBase = null)
+            : base(timer, timerLoggerBase)
         {
         }
 
