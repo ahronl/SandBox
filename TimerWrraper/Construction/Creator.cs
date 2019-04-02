@@ -79,15 +79,15 @@ namespace TimerWrapper.Construction
         {
             var timer = new TimerBasedImpl(_command, _policy, name);
 
-            CreateZTimerEventListeners(timer);
+            CreateTimerEventListeners(timer);
 
             return timer;
         }
 
-        private void CreateZTimerEventListeners(TimerBasedImpl timer)
+        private void CreateTimerEventListeners(TimerBasedImpl timer)
         {
-            var timerLogger = new ZTimerLogger(timer);
-            new ZTimerEventListener(timer, timerLogger);
+            var timerLogger = new TimerLogger(timer);
+            new TimerEventListener(timer, timerLogger);
         }
     }
 }
