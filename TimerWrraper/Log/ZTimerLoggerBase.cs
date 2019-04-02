@@ -2,16 +2,16 @@
 
 namespace TimerWrapper.Log
 {
-    internal abstract class ZTimerLoggerBase : IDisposable
+    internal abstract class TimerLoggerBase : IDisposable
     {
         private readonly ITimerEvents _timer;
-        private readonly ZTimerLoggerBase _ztimerLoggerBase;
+        private readonly TimerLoggerBase _timerLoggerBase;
         private bool _disposing;
 
-        protected ZTimerLoggerBase(ITimerEvents timer, ZTimerLoggerBase ztimerLoggerBase = null)
+        protected TimerLoggerBase(ITimerEvents timer, TimerLoggerBase timerLoggerBase = null)
         {
             _timer = timer;
-            _ztimerLoggerBase = ztimerLoggerBase;
+            _timerLoggerBase = timerLoggerBase;
             _timer.StartEvent += LogStartEvent;
             _timer.StopEvent += LogStopEvent;
             _timer.CanceledEvent += LogCanceledEvent;
@@ -24,37 +24,37 @@ namespace TimerWrapper.Log
 
         protected virtual void LogExecutingStartEvent(ITimer sender)
         {
-            _ztimerLoggerBase?.LogExecutingStartEvent(sender);
+            _timerLoggerBase?.LogExecutingStartEvent(sender);
         }
 
         protected virtual void LogExecutingEndEvent(ITimer sender, TimeSpan executionTimeSpan, bool completedsuccess)
         {
-            _ztimerLoggerBase?.LogExecutingEndEvent(sender, executionTimeSpan, completedsuccess);
+            _timerLoggerBase?.LogExecutingEndEvent(sender, executionTimeSpan, completedsuccess);
         }
 
         protected virtual void LogExceptionEvent(ITimer sender, Exception ex)
         {
-            _ztimerLoggerBase?.LogExceptionEvent(sender, ex);
+            _timerLoggerBase?.LogExceptionEvent(sender, ex);
         }
 
         protected virtual void LogCanceledEvent(ITimer sender)
         {
-            _ztimerLoggerBase?.LogCanceledEvent(sender);
+            _timerLoggerBase?.LogCanceledEvent(sender);
         }
 
         protected virtual void LogStopEvent(ITimer sender)
         {
-            _ztimerLoggerBase?.LogStopEvent(sender);
+            _timerLoggerBase?.LogStopEvent(sender);
         }
 
         protected virtual void LogStartEvent(ITimer sender)
         {
-            _ztimerLoggerBase?.LogStartEvent(sender);
+            _timerLoggerBase?.LogStartEvent(sender);
         }
 
         protected virtual void DisposeEvents(ITimer sender)
         {
-            _ztimerLoggerBase?.DisposeEvents(sender);
+            _timerLoggerBase?.DisposeEvents(sender);
         }
 
         public void Dispose()
